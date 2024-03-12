@@ -1,2 +1,2 @@
-# Remita
-Remita NuGet Package implemented in .NET Standard
+# Payment Integrations
+Payment API NuGet Package implemented in .NET Standard
