@@ -2,6 +2,7 @@
 using Remita.Model.Request;
 using Remita.Model.Response;
 using Remita.Utilities;
+using Remita.Utilities.Serializers;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;

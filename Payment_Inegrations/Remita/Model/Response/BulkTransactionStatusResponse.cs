@@ -1,6 +1,5 @@
-﻿using System.Collections.Generic;
-using System;
-using Remita.Model.Common;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Remita.Model.Response
 {
@@ -9,9 +8,20 @@ namespace Remita.Model.Response
         public string BatchRef { get; set; }
         public decimal TotalAmount { get; set; }
         public decimal FeeAmount { get; set; }
-        public DateTime TransactionDate { get; set; }
+        public DateTime? TransactionDate { get; set; }
         public string Currency { get; set; }
         public string PaymentStatus { get; set; }
-        public List<BulkPaymentTransactionData> Transactions { get; set; }
+        public List<BulkPaymentTransactionDataResponse> Transactions { get; set; }
+    }
+
+    public class BulkPaymentTransactionDataResponse
+    {
+        public decimal Amount { get; set; }
+        public string TransactionRef { get; set; }
+        public string DestinationAccount { get; set; }
+        public string DestinationBankCode { get; set; }
+        public string DestinationNarration { get; set; }
+        public string PaymentStatus { get; set; }
+        public string StatusMessage { get; set; }
     }
 }

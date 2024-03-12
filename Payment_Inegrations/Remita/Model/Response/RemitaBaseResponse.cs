@@ -1,4 +1,4 @@
-﻿using Remita.Utilities;
+﻿using Remita.Utilities.Serializers;
 using System.Text.Json.Serialization;
 
 namespace Remita.Model.Response
@@ -30,7 +30,7 @@ namespace Remita.Model.Response
     public class ErrorResponse
     {
         public string Error { get; set; }
-        public bool IsSuccessful => !string.IsNullOrWhiteSpace(Error);
+        public bool IsSuccessful => string.IsNullOrWhiteSpace(Error);
     }
 
     public class ResponseData
@@ -39,6 +39,8 @@ namespace Remita.Model.Response
 
         [JsonPropertyName("error_description")]
         public string ErrorDescription { get; set; }
+        [JsonPropertyName("message")]
+        public string Message { get; set; }
     }
 
     public class RemitaErrorResponse

@@ -7,14 +7,16 @@ using Remita.Model.Common;
 using Remita.Model.Request;
 using Remita.Model.Response;
 using Remita.Utilities;
+using Remita.Utilities.Serializers;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Remita.Implementations
 {
-    public class RemitaHttpClient : IRemitaHttpClient
+    internal class RemitaHttpClient : IRemitaHttpClient
     {
         private readonly HttpClient _httpClient;
         private readonly RemitaConfiguration _configuration;
@@ -66,8 +68,8 @@ namespace Remita.Implementations
                         return parsedResponse;
                     }
                 }
-
             }
+            catch (AuthenticationFailedException) { throw; }
             catch (Exception ex)
             {
                 _logger?.LogError(ex, ex.Message, nameof(SendRequest));
@@ -110,6 +112,7 @@ namespace Remita.Implementations
                 }
 
             }
+            catch (AuthenticationFailedException) { throw; }
             catch (Exception ex)
             {
                 _logger?.LogError(ex, ex.Message, nameof(SendRequest));
@@ -155,9 +158,11 @@ namespace Remita.Implementations
             }
             else
             {
-                return (string.IsNullOrWhiteSpace(responseContent) ? default : new T
+                var parsedData = string.IsNullOrWhiteSpace(responseContent) ? null : JsonSerializer.Deserialize<RemitaErrorResponse>(responseContent)?.ParsedResponseData;
+
+                return (new T()
                 {
-                    Error = JsonSerializer.Deserialize<RemitaErrorResponse>(responseContent)?.ParsedResponseData?.ErrorDescription ??
+                    Error = parsedData?.ErrorDescription ?? parsedData?.Message ??
                         $"Unable to complete {operationName} operation"
                 }, responseContent);
             }
@@ -188,13 +193,25 @@ namespace Remita.Implementations
                     if (responseMessage.IsSuccessStatusCode)
                     {
                         var responseStr = await responseMessage.Content.ReadAsStringAsync();
-                        var response = JsonSerializer.Deserialize<RemitaBaseResponse<AuthenticationResponse>>(responseStr);
-                        token = response.Data.AccessToken;
-                        await _cache.SetStringAsync(CacheConstants.AccessToken, token, new DistributedCacheEntryOptions { AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(response.Data.ExpiresIn) });
-                        return token;
+                        var response = JsonSerializer.Deserialize<RemitaBaseResponse<List<AuthenticationResponse>>>(responseStr);
+                        if (response.Status == "00" && !response.Data.IsNullOrEmpty())
+                        {
+                            token = response.Data[0].AccessToken;
+                            await _cache.SetStringAsync(CacheConstants.AccessToken, token, new DistributedCacheEntryOptions
+                            {
+                                AbsoluteExpirationRelativeToNow = TimeSpan.FromSeconds(response.Data[0].ExpiresIn)
+                            });
+                            return token;
+                        }
+                        else
+                        {
+                            throw new AuthenticationFailedException(response?.Message);
+                        }
                     }
-
-                    throw new AuthenticationFailedException("Unable to complete remita authentication");
+                    else
+                    {
+                        throw new AuthenticationFailedException("Unable to complete remita authentication");
+                    }
                 }
             }
             catch (Exception ex)

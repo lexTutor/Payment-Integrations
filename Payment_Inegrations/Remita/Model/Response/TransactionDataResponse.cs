@@ -8,7 +8,7 @@ namespace Remita.Model.Response
         public decimal Amount { get; set; }
         public string PaymentStatus { get; set; }
         public string TransactionDescription { get; set; }
-        public DateTime TransactionDate { get; set; }
+        public DateTime? TransactionDate { get; set; }
         public DateTime? PaymentDate { get; set; }
         public string Currency { get; set; }
         public string DestinationAccount { get; set; }
