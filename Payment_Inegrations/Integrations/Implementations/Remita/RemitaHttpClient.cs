@@ -1,8 +1,8 @@
 ﻿using Integrations.Exceptions;
-using Integrations.Interfaces;
+using Integrations.Interfaces.Remita;
 using Integrations.Model.Common;
-using Integrations.Model.Request;
-using Integrations.Model.Response;
+using Integrations.Model.Api.Request;
+using Integrations.Model.Api.Response;
 using Integrations.Utilities;
 using Integrations.Utilities.Serializers;
 using Microsoft.Extensions.Caching.Distributed;
@@ -14,7 +14,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Integrations.Implementations
+namespace Integrations.Implementations.Remita
 {
     internal class RemitaHttpClient : IRemitaHttpClient
     {
@@ -193,7 +193,7 @@ namespace Integrations.Implementations
                     if (responseMessage.IsSuccessStatusCode)
                     {
                         var responseStr = await responseMessage.Content.ReadAsStringAsync();
-                        var response = JsonSerializer.Deserialize<RemitaBaseResponse<List<AuthenticationResponse>>>(responseStr);
+                        var response = JsonSerializer.Deserialize<PaymentBaseResponse<List<AuthenticationResponse>>>(responseStr);
                         if (response.Status == "00" && !response.Data.IsNullOrEmpty())
                         {
                             token = response.Data[0].AccessToken;

@@ -31,7 +31,8 @@
 
     public class CacheConstants
     {
-        public const string Banks = "RemitaBanks";
+        public const string RemitaBanks = "RemitaBanks";
+        public const string PaystackBanks = "PaystackBanks";
         public const string AccessToken = "remitaaccesstoken";
     }
 }

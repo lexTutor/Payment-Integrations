@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace Integrations.Model.Request
+namespace Integrations.Model.Api.Request
 {
     public class BulkPaymentTransactionDataRequest
     {

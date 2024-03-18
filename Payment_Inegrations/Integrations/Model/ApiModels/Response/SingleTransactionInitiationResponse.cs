@@ -1,9 +1,10 @@
 ﻿using System;
 
-namespace Integrations.Model.Response
+namespace Integrations.Model.Api.Response
 {
     public class SingleTransactionInitiationResponse
     {
+        public string AuthorizationUrl { get; set; }
         public decimal Amount { get; set; }
         public string TransactionRef { get; set; }
         public string TransactionDescription { get; set; }

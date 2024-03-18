@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Integrations.Model.Response
+namespace Integrations.Model.Api.Response
 {
     public class BulkTransactionStatusResponse
     {
@@ -23,5 +23,10 @@ namespace Integrations.Model.Response
         public string DestinationNarration { get; set; }
         public string PaymentStatus { get; set; }
         public string StatusMessage { get; set; }
+        public string Currency { get; set; }
+        public string SourceAccount { get; set; }
+        public DateTime PaymentDate { get; set; }
+        public DateTime TransactionDate { get; set; }
+        public string TransactionDescription { get; set; }
     }
 }

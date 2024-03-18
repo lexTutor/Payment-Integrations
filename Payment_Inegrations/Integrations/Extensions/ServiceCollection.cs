@@ -1,5 +1,7 @@
 ﻿using Integrations.Implementations;
+using Integrations.Implementations.Remita;
 using Integrations.Interfaces;
+using Integrations.Interfaces.Remita;
 using Integrations.Model.Common;
 using Integrations.Utilities;
 using Microsoft.Extensions.Caching.Distributed;
@@ -17,7 +19,7 @@ namespace Integrations.Extensions
             #region API Servies
 
             services.AddScoped<IRemitaHttpClient, RemitaHttpClient>();
-            services.AddScoped<IRemitaApiService, RemitaApiService>();
+            services.AddScoped<IPaymentProvider, RemitaApiService>();
 
             #endregion
 

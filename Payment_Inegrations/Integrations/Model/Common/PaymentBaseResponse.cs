@@ -1,29 +1,29 @@
 ﻿using Integrations.Utilities.Serializers;
 using System.Text.Json.Serialization;
 
-namespace Integrations.Model.Response
+namespace Integrations.Model.Common
 {
-    public class RemitaBaseResponse<T> : ErrorResponse
+    public class PaymentBaseResponse<T> : ErrorResponse
     {
         public string Status { get; set; }
         public string Message { get; set; }
         public T Data { get; set; }
 
-        public RemitaBaseResponse()
+        public PaymentBaseResponse()
         {
 
         }
 
-        public RemitaBaseResponse(string message, T data = default, string error = null)
+        public PaymentBaseResponse(string message, T data = default, string error = null)
         {
             Message = message;
             Data = data;
             Error = error ?? Error;
         }
 
-        public static RemitaBaseResponse<T> Failed(string message, T data = default, string error = null) => new RemitaBaseResponse<T>(message, data: data, error: error);
+        public static PaymentBaseResponse<T> Failed(string message, T data = default, string error = null) => new PaymentBaseResponse<T>(message, data: data, error: error);
 
-        public static RemitaBaseResponse<T> Successful(string message, T data = default) => new RemitaBaseResponse<T>(message, data: data);
+        public static PaymentBaseResponse<T> Successful(string message, T data = default) => new PaymentBaseResponse<T>(message, data: data);
 
     }
 

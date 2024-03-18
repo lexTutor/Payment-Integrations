@@ -1,4 +1,4 @@
-﻿namespace Integrations.Model.Response
+﻿namespace Integrations.Model.Api.Response
 {
     public class AccountEnquiryResponse
     {
