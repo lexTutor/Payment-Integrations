@@ -1,14 +1,14 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
+﻿using Integrations.Implementations;
+using Integrations.Interfaces;
+using Integrations.Model.Common;
+using Integrations.Utilities;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Remita.Implementations;
-using Remita.Interfaces;
-using Remita.Model.Common;
-using Remita.Utilities;
 using System;
 using System.Net.Http.Headers;
 
-namespace Remita.Extensions
+namespace Integrations.Extensions
 {
     public static class ServiceCollection
     {

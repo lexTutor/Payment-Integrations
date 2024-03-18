@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Remita.Exceptions
+namespace Integrations.Exceptions
 {
     public class InvalidServerResponseException : Exception
     {

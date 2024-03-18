@@ -1,4 +1,4 @@
-﻿namespace Remita.Model.Common
+﻿namespace Integrations.Model.Common
 {
     public class RemitaConfiguration
     {

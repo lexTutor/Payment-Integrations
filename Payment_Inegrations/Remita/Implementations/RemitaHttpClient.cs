@@ -1,20 +1,20 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
+﻿using Integrations.Exceptions;
+using Integrations.Interfaces;
+using Integrations.Model.Common;
+using Integrations.Model.Request;
+using Integrations.Model.Response;
+using Integrations.Utilities;
+using Integrations.Utilities.Serializers;
+using Microsoft.Extensions.Caching.Distributed;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Remita.Exceptions;
-using Remita.Interfaces;
-using Remita.Model.Common;
-using Remita.Model.Request;
-using Remita.Model.Response;
-using Remita.Utilities;
-using Remita.Utilities.Serializers;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Remita.Implementations
+namespace Integrations.Implementations
 {
     internal class RemitaHttpClient : IRemitaHttpClient
     {

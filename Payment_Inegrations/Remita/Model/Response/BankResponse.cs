@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Remita.Model.Response
+namespace Integrations.Model.Response
 {
     public class BankResponse
     {

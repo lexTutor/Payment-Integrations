@@ -1,11 +1,11 @@
-﻿using Remita.Model.Request;
-using Remita.Model.Response;
-using Remita.Utilities;
+﻿using Integrations.Model.Request;
+using Integrations.Model.Response;
+using Integrations.Utilities;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Remita.Implementations
+namespace Integrations.Implementations
 {
     public partial class RemitaApiService
     {

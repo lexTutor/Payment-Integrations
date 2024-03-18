@@ -1,7 +1,7 @@
-﻿using Remita.Utilities.Serializers;
+﻿using Integrations.Utilities.Serializers;
 using System.Text.Json.Serialization;
 
-namespace Remita.Model.Response
+namespace Integrations.Model.Response
 {
     public class RemitaBaseResponse<T> : ErrorResponse
     {

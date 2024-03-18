@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Remita.Utilities
+namespace Integrations.Utilities
 {
     public static class AppHelpers
     {

@@ -1,7 +1,7 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
-using Remita.Interfaces;
+﻿using Integrations.Interfaces;
+using Microsoft.Extensions.Caching.Distributed;
 
-namespace Remita.Implementations
+namespace Integrations.Implementations
 {
     public partial class RemitaApiService : IRemitaApiService
     {

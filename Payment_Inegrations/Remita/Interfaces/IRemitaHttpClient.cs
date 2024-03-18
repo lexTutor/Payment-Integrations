@@ -1,9 +1,9 @@
-﻿using Remita.Model.Response;
+﻿using Integrations.Model.Response;
 using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Remita.Interfaces
+namespace Integrations.Interfaces
 {
     public interface IRemitaHttpClient
     {

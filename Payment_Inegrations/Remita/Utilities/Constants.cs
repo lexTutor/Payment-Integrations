@@ -1,4 +1,4 @@
-﻿namespace Remita.Utilities
+﻿namespace Integrations.Utilities
 {
     public class PaymentStatusConstants
     {

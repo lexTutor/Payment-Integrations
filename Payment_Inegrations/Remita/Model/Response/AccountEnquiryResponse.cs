@@ -1,4 +1,4 @@
-﻿namespace Remita.Model.Response
+﻿namespace Integrations.Model.Response
 {
     public class AccountEnquiryResponse
     {

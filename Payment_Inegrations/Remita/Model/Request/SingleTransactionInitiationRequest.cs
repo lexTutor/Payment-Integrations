@@ -1,7 +1,7 @@
-﻿using Remita.Utilities;
+﻿using Integrations.Utilities;
 using System.Text.Json.Serialization;
 
-namespace Remita.Model.Request
+namespace Integrations.Model.Request
 {
     public class SingleTransactionInitiationRequest
     {

@@ -2,7 +2,7 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-namespace Remita.Utilities.Serializers
+namespace Integrations.Utilities.Serializers
 {
     public class DateOnlyDateTimeConverter : JsonConverter<DateTime?>
     {

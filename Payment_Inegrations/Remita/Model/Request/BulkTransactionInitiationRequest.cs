@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Remita.Model.Request
+namespace Integrations.Model.Request
 {
 
     public class BulkTransactionInitiationRequest

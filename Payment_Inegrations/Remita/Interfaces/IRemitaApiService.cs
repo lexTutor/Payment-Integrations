@@ -1,10 +1,10 @@
-﻿using Remita.Model.Request;
-using Remita.Model.Response;
+﻿using Integrations.Model.Request;
+using Integrations.Model.Response;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Remita.Interfaces
+namespace Integrations.Interfaces
 {
     public interface IRemitaApiService
     {

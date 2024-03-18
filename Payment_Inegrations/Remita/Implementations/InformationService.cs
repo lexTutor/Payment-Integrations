@@ -1,14 +1,14 @@
-﻿using Microsoft.Extensions.Caching.Distributed;
-using Remita.Model.Request;
-using Remita.Model.Response;
-using Remita.Utilities;
-using Remita.Utilities.Serializers;
+﻿using Integrations.Model.Request;
+using Integrations.Model.Response;
+using Integrations.Utilities;
+using Integrations.Utilities.Serializers;
+using Microsoft.Extensions.Caching.Distributed;
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Remita.Implementations
+namespace Integrations.Implementations
 {
     public partial class RemitaApiService
     {

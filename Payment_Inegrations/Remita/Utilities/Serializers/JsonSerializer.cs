@@ -1,6 +1,6 @@
 ﻿using System.Text.Json;
 
-namespace Remita.Utilities.Serializers
+namespace Integrations.Utilities.Serializers
 {
     public static class JsonSerializer
     {
