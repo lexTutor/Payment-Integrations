@@ -1,4 +1,4 @@
-﻿using Integrations.Implementations;
+﻿using Integrations.Implementations.Paystack;
 using Integrations.Implementations.Remita;
 using Integrations.Interfaces;
 using Integrations.Interfaces.Remita;
@@ -48,6 +48,33 @@ namespace Integrations.Extensions
                 httpClient.BaseAddress = new Uri(configuration["Remita:Url"]);
                 httpClient.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
             });
+
+            #endregion
+        }
+
+        public static void AddPaystackaDependencies(this IServiceCollection services, IConfiguration configuration)
+        {
+            #region API Servies
+
+            services.AddScoped<IPaymentProvider, PaystackApiService>();
+
+            #endregion
+
+            #region Distributed Cache
+
+            var serviceProvider = services.BuildServiceProvider();
+            var distributedCache = serviceProvider.GetService<IDistributedCache>();
+            if (distributedCache == null)
+            {
+                services.AddDistributedMemoryCache();
+            }
+
+            #endregion
+
+            #region Configuration
+
+            services.AddOptions();
+            services.Configure<PayStackConfiguration>(o => configuration.GetSection(PayStackConfiguration.ConfigKey).Bind(o));
 
             #endregion
         }
