@@ -1,10 +1,10 @@
-﻿using Integrations.Model.Common;
+﻿using Integrations.Model.Api.Request;
+using Integrations.Model.Api.Response;
+using Integrations.Model.ApiModels.Request;
+using Integrations.Model.Common;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using System;
-using Integrations.Model.Api.Response;
-using Integrations.Model.Api.Request;
-using Integrations.Model.ApiModels.Request;
 
 namespace Integrations.Interfaces
 {

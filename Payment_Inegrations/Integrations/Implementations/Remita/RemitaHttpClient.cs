@@ -1,8 +1,8 @@
 ﻿using Integrations.Exceptions;
 using Integrations.Interfaces.Remita;
-using Integrations.Model.Common;
 using Integrations.Model.Api.Request;
 using Integrations.Model.Api.Response;
+using Integrations.Model.Common;
 using Integrations.Utilities;
 using Integrations.Utilities.Serializers;
 using Microsoft.Extensions.Caching.Distributed;

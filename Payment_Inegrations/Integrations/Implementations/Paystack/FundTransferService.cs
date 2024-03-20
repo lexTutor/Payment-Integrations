@@ -18,7 +18,7 @@ namespace Integrations.Implementations.Paystack
             {
                 Transactions = response.Data.Select(t => new BulkPaymentTransactionDataResponse
                 {
-                    Amount = t.Amount,
+                    Amount = t.Amount / 100,
                     Currency = t.Currency,
                     DestinationAccount = t.Recipient?.Details?.AccountNumber,
                     SourceAccount = t.Source,
@@ -43,7 +43,7 @@ namespace Integrations.Implementations.Paystack
             if (string.IsNullOrWhiteSpace(singleTransactionInitiationRequest.Currency))
                 return Task.FromResult(PaymentBaseResponse<SingleTransactionInitiationResponse>.Failed("Failed", error: $"Invalid {nameof(singleTransactionInitiationRequest.Currency)}"));
 
-            var response = _payStackApi.Transfers.InitiateTransfer(amount: (int)Math.Ceiling(singleTransactionInitiationRequest.Amount),
+            var response = _payStackApi.Transfers.InitiateTransfer(amount: (int)Math.Ceiling(singleTransactionInitiationRequest.Amount * 100),
                 recipientCode: singleTransactionInitiationRequest.DestinationAccount, currency: singleTransactionInitiationRequest.Currency);
 
             if (response.Status)
@@ -69,7 +69,7 @@ namespace Integrations.Implementations.Paystack
 
             var requestData = bulkTransactionInitiationRequest.Transactions.Select(t => new BulkTransferEntry
             {
-                Amount = (int)t.Amount,
+                Amount = (int)t.Amount * 100,
                 Recipient = t.DestinationAccount
             });
 
@@ -93,7 +93,7 @@ namespace Integrations.Implementations.Paystack
             {
                 return Task.FromResult(PaymentBaseResponse<TransactionDataResponse>.Successful(response.Message, new TransactionDataResponse
                 {
-                    Amount = response.Data.Amount,
+                    Amount = response.Data.Amount / 100,
                     Currency = response.Data.Currency,
                     DestinationAccount = response.Data.Recipient?.Details?.AccountNumber,
                     SourceAccount = response.Data.Source,

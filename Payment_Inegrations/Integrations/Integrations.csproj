@@ -2,7 +2,24 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageId>Generic.Payment.Integrations</PackageId>
+    <Title>Generic Payment Integrations</Title>
+    <Version>1.0.1</Version>
+    <Authors>Chibuikem Akpaka</Authors>
+    <Product>Generic Payment Integrations</Product>
+    <PackageTags>Payment Paystack Remita NGN</PackageTags>
+    <Description>A Library to centralize payment and fintech integrations in .NET.</Description>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="..\..\README.md">
+      <Pack>True</Pack>
+      <PackagePath>\</PackagePath>
+    </None>
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="8.0.0" />

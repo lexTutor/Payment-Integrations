@@ -1,5 +1,4 @@
-﻿using Integrations.Model.Api.Response;
-using Integrations.Model.ApiModels.Request;
+﻿using Integrations.Model.ApiModels.Request;
 using Integrations.Model.Common;
 using PayStack.Net;
 using System.Threading.Tasks;
@@ -12,7 +11,7 @@ namespace Integrations.Implementations.Paystack
         {
             var response = _payStackApi.Transactions.Initialize(new TransactionInitializeRequest
             {
-                AmountInKobo = generatePaymentUrl.Amount,
+                AmountInKobo = generatePaymentUrl.Amount * 100,
                 CallbackUrl = generatePaymentUrl.CallbackUrl,
                 Currency = generatePaymentUrl.Currency,
                 Email = generatePaymentUrl.Email,

@@ -1,8 +1,8 @@
 ﻿using Integrations.Interfaces;
 using Integrations.Model.Common;
 using Microsoft.Extensions.Caching.Distributed;
-using PayStack.Net;
 using Microsoft.Extensions.Options;
+using PayStack.Net;
 
 namespace Integrations.Implementations.Paystack
 {
