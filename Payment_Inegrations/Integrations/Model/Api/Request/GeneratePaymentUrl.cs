@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Integrations.Model.ApiModels.Request
+namespace Integrations.Model.Api.Request
 {
     public class GeneratePaymentUrl
     {
@@ -8,7 +8,7 @@ namespace Integrations.Model.ApiModels.Request
         public string TransactionReference { get; set; }
 
         [JsonProperty("amount")]
-        public int Amount { get; set; }
+        public decimal Amount { get; set; }
 
         [JsonProperty("email")]
         public string Email { get; set; }

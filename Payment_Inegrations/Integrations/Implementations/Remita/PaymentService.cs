@@ -1,4 +1,4 @@
-﻿using Integrations.Model.ApiModels.Request;
+﻿using Integrations.Model.Api.Request;
 using Integrations.Model.Common;
 using System;
 using System.Threading.Tasks;

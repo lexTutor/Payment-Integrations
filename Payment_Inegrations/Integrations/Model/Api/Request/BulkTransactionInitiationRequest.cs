@@ -31,7 +31,9 @@ namespace Integrations.Model.Api.Request
         public string CustomReference { get; set; }
 
         [JsonPropertyName("generateRrrOnly")]
-        public int GenerateRrrOnly { get; set; }
+        public int GenerateRrrOnly => GenerateRrrOnlyBool ? 1 : 0;
+
+        public bool GenerateRrrOnlyBool { get; set; }
 
         [JsonPropertyName("transactions")]
         public List<BulkPaymentTransactionDataRequest> Transactions { get; set; }
