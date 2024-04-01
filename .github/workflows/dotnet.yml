@@ -13,7 +13,7 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
-
+    
     steps:
     - uses: actions/checkout@v4
     - name: Setup .NET
@@ -22,5 +22,8 @@ jobs:
         dotnet-version: 2.0.x
     - name: Restore dependencies
       run: dotnet restore
+      working-directory: Payment-Integrations
+      
     - name: Build
       run: dotnet build --no-restore
+      working-directory: Payment-Integrations
