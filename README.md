@@ -40,8 +40,8 @@ The following apis have been currently integrated
 |-------------------------------|--------|----------|
 | Online Payment                | No     | Yes      |
 | Fund Transfer                 | Yes    | Yes      |
-| Bulk Fund Transfer            | Yes    | Data     |
-| Account Enquiry               | Yes    | Data     |
+| Bulk Fund Transfer            | Yes    | Yes      |
+| Account Enquiry               | Yes    | Yes      |
 | Transaction Enquiry           | Yes    | Yes      |
 | Bulk Transaction Enquiry      | Yes    | Yes      |
 | Banks                         | Yes    | Yes      |
