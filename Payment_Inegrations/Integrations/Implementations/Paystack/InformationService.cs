@@ -7,6 +7,7 @@ using Microsoft.Extensions.Caching.Distributed;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Integrations.Implementations.Paystack
@@ -42,26 +43,31 @@ namespace Integrations.Implementations.Paystack
             return PaymentBaseResponse<IList<Bank>>.Failed("Failed");
         }
 
-        public Task<PaymentBaseResponse<AccountEnquiryResponse>> RetrieveAccountInformation
+        public async ValueTask<PaymentBaseResponse<AccountEnquiryResponse>> RetrieveAccountInformation
             (AccountEnquiryRequest accountEnquiryRequest, Func<object, string, string, string, Task> cleanUp = null)
         {
             if (string.IsNullOrWhiteSpace(accountEnquiryRequest.SourceAccount))
-                return Task.FromResult(PaymentBaseResponse<AccountEnquiryResponse>.Failed("Failed", error: $"Invalid {nameof(accountEnquiryRequest.SourceAccount)}"));
+                return PaymentBaseResponse<AccountEnquiryResponse>.Failed("Failed", error: $"Invalid {nameof(accountEnquiryRequest.SourceAccount)}");
 
             if (string.IsNullOrWhiteSpace(accountEnquiryRequest.SourceBankCode))
-                return Task.FromResult(PaymentBaseResponse<AccountEnquiryResponse>.Failed("Failed", error: $"Invalid {nameof(accountEnquiryRequest.SourceBankCode)}"));
+                return PaymentBaseResponse<AccountEnquiryResponse>.Failed("Failed", error: $"Invalid {nameof(accountEnquiryRequest.SourceBankCode)}");
 
-            var accountEnquiryResponse = _payStackApi.Miscellaneous.ResolveAccountNumber(accountEnquiryRequest.SourceAccount, accountEnquiryRequest.SourceBankCode);
+            var response = _payStackApi.Miscellaneous.ResolveAccountNumber(accountEnquiryRequest.SourceAccount, accountEnquiryRequest.SourceBankCode);
 
-            if (accountEnquiryResponse?.Data == null || !accountEnquiryResponse.Status)
-                return Task.FromResult(PaymentBaseResponse<AccountEnquiryResponse>.Failed("Failed", error: accountEnquiryResponse?.Message ?? "Account information not found"));
+            if (cleanUp != null)
+            {
+                await cleanUp(accountEnquiryRequest, response.RawJson, HttpMethod.Get.ToString(), nameof(_payStackApi.Transfers.ListTransfers));
+            }
 
-            return Task.FromResult(PaymentBaseResponse<AccountEnquiryResponse>.Successful("Successful", new AccountEnquiryResponse
+            if (response?.Data == null || !response.Status)
+                return PaymentBaseResponse<AccountEnquiryResponse>.Failed("Failed", error: response?.Message ?? "Account information not found");
+
+            return PaymentBaseResponse<AccountEnquiryResponse>.Successful("Successful", new AccountEnquiryResponse
             {
                 SourceBankCode = accountEnquiryRequest.SourceBankCode,
-                SourceAccount = accountEnquiryResponse.Data.AccountNumber,
-                SourceAccountName = accountEnquiryResponse.Data.AccountName
-            }));
+                SourceAccount = response.Data.AccountNumber,
+                SourceAccountName = response.Data.AccountName
+            });
         }
     }
 }

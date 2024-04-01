@@ -35,7 +35,7 @@ namespace Integrations.Implementations.Remita
             return PaymentBaseResponse<IList<Bank>>.Failed("Failed");
         }
 
-        public async Task<PaymentBaseResponse<AccountEnquiryResponse>> RetrieveAccountInformation(AccountEnquiryRequest accountEnquiryRequest, Func<object, string, string, string, Task> cleanUp = null)
+        public async ValueTask<PaymentBaseResponse<AccountEnquiryResponse>> RetrieveAccountInformation(AccountEnquiryRequest accountEnquiryRequest, Func<object, string, string, string, Task> cleanUp = null)
         {
             if (string.IsNullOrWhiteSpace(accountEnquiryRequest.SourceAccount))
                 return PaymentBaseResponse<AccountEnquiryResponse>.Failed("Failed", error: $"Invalid {nameof(accountEnquiryRequest.SourceAccount)}");

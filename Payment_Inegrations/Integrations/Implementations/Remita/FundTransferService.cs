@@ -10,7 +10,7 @@ namespace Integrations.Implementations.Remita
 {
     public partial class RemitaApiService
     {
-        public async Task<PaymentBaseResponse<BulkTransactionStatusResponse>> BulkTransactionStatusEnquiry
+        public async ValueTask<PaymentBaseResponse<BulkTransactionStatusResponse>> BulkTransactionStatusEnquiry
             (string transactionRef, int page = 1, int pageSize = 50, Func<object, string, string, string, Task> cleanUp = null)
         {
             if (string.IsNullOrWhiteSpace(transactionRef))
@@ -20,15 +20,15 @@ namespace Integrations.Implementations.Remita
                 (HttpMethod.Get, string.Format(EndpointConstants.BulkPaymentStatusEnquiry, transactionRef), nameof(BulkTransactionStatusEnquiry), cleanUp);
         }
 
-        public async Task<PaymentBaseResponse<SingleTransactionInitiationResponse>> InitiateTransaction(SingleTransactionInitiationRequest singleTransactionInitiationRequest, Func<object, string, string, string, Task> cleanUp = null)
+        public async ValueTask<PaymentBaseResponse<SingleTransactionInitiationResponse>> InitiateTransaction(SingleTransactionInitiationRequest singleTransactionInitiationRequest, Func<object, string, string, string, Task> cleanUp = null)
             => await _httpClient.SendRequest<SingleTransactionInitiationRequest, PaymentBaseResponse<SingleTransactionInitiationResponse>>
                 (HttpMethod.Post, EndpointConstants.InitiateSingleTransaction, nameof(InitiateTransaction), singleTransactionInitiationRequest, cleanUp);
 
-        public async Task<PaymentBaseResponse<BulkTransactionInitiationResponse>> InitiateTransaction(BulkTransactionInitiationRequest bulkTransactionInitiationRequest, Func<object, string, string, string, Task> cleanUp = null)
+        public async ValueTask<PaymentBaseResponse<BulkTransactionInitiationResponse>> InitiateTransaction(BulkTransactionInitiationRequest bulkTransactionInitiationRequest, Func<object, string, string, string, Task> cleanUp = null)
             => await _httpClient.SendRequest<BulkTransactionInitiationRequest, PaymentBaseResponse<BulkTransactionInitiationResponse>>
                 (HttpMethod.Post, EndpointConstants.InitiateBulkTransaction, nameof(InitiateTransaction), bulkTransactionInitiationRequest, cleanUp);
 
-        public async Task<PaymentBaseResponse<TransactionDataResponse>> SingleTransactionStatusEnquiry(string transactionRef,
+        public async ValueTask<PaymentBaseResponse<TransactionDataResponse>> SingleTransactionStatusEnquiry(string transactionRef,
             Func<object, string, string, string, Task> cleanUp = null)
         {
             if (string.IsNullOrWhiteSpace(transactionRef))

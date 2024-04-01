@@ -2,30 +2,36 @@
 using Integrations.Model.Common;
 using PayStack.Net;
 using System;
+using System.Net.Http;
 using System.Threading.Tasks;
 
 namespace Integrations.Implementations.Paystack
 {
     public partial class PaystackApiService
     {
-        public Task<PaymentBaseResponse<string>> GeneratePaymentUrl(GeneratePaymentUrl generatePaymentUrl)
+        public async ValueTask<PaymentBaseResponse<string>> GeneratePaymentUrl(GeneratePaymentUrl paymentData, Func<object, string, string, string, Task> cleanUp = null)
         {
             var response = _payStackApi.Transactions.Initialize(new TransactionInitializeRequest
             {
-                AmountInKobo = (int)Math.Ceiling(generatePaymentUrl.Amount * 100),
-                CallbackUrl = generatePaymentUrl.CallbackUrl,
-                Currency = generatePaymentUrl.Currency,
-                Email = generatePaymentUrl.Email,
-                Reference = generatePaymentUrl.TransactionReference
+                AmountInKobo = (int)Math.Ceiling(paymentData.Amount * 100),
+                CallbackUrl = paymentData.CallbackUrl,
+                Currency = paymentData.Currency,
+                Email = paymentData.Email,
+                Reference = paymentData.TransactionReference
             });
 
-            if (response?.Data == null || response.Status)
+            if (cleanUp != null)
             {
-                return Task.FromResult(PaymentBaseResponse<string>.Successful(response.Message, response.Data.AuthorizationUrl));
+                await cleanUp(paymentData, response.RawJson, HttpMethod.Post.ToString(), nameof(_payStackApi.Transactions));
+            }
+
+            if (response.Status && response.Data == null)
+            {
+                return PaymentBaseResponse<string>.Successful(response.Message, response.Data.AuthorizationUrl);
             }
             else
             {
-                return Task.FromResult(PaymentBaseResponse<string>.Failed(response.Message));
+                return PaymentBaseResponse<string>.Failed(response.Message);
             }
         }
     }

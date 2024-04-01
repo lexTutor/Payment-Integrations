@@ -7,7 +7,7 @@ namespace Integrations.Implementations.Remita
 {
     public partial class RemitaApiService
     {
-        public Task<PaymentBaseResponse<string>> GeneratePaymentUrl(GeneratePaymentUrl generatePaymentUrl)
-            => throw new NotImplementedException("There are no APIs available for Remita");
+        public ValueTask<PaymentBaseResponse<string>> GeneratePaymentUrl(GeneratePaymentUrl generatePaymentUrl, Func<object, string, string, string, Task> cleanUp = null)
+            => throw new NotImplementedException("GeneratePaymentUrl API is not available for Remita");
     }
 }
