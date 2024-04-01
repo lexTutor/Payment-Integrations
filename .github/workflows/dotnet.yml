@@ -22,8 +22,8 @@ jobs:
         dotnet-version: 2.0.x
     - name: Restore dependencies
       run: dotnet restore
-      working-directory: Payment-Integrations
+      working-directory: Integrations
       
     - name: Build
       run: dotnet build --no-restore
-      working-directory: Payment-Integrations
+      working-directory: Integrations
