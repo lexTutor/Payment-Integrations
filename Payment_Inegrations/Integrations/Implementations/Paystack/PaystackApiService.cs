@@ -20,6 +20,5 @@ namespace Integrations.Implementations.Paystack
         }
 
         public PaymentProvider PaymentProvider => PaymentProvider.PayStack;
-
     }
 }

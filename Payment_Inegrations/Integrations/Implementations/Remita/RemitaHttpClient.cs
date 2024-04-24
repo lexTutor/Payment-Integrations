@@ -49,12 +49,12 @@ namespace Integrations.Implementations.Remita
         /// <exception cref="AuthenticationFailedException">Thrown when authentication fails due to Invalid credentials or otherwise.</exception>
         /// <exception cref="InvalidServerResponseException">Thrown when the server returns incomprehensible data.</exception>
         public async Task<TRes> SendRequest<TReq, TRes>(HttpMethod method, string relativeUrl, string operationName,
-            TReq requestBody = default, Func<object, string, string, string, Task> cleanUp = null)
+            TReq requestBody = default, string hashToken = null, Func<object, string, string, string, Task> cleanUp = null)
             where TRes : ErrorResponse, new()
         {
             try
             {
-                using (var request = await CreateRequest(method, relativeUrl, requestBody))
+                using (var request = await CreateRequest(method, relativeUrl, requestBody, hashToken: hashToken))
                 {
                     using (var response = await _httpClient.SendAsync(request))
                     {
@@ -91,12 +91,13 @@ namespace Integrations.Implementations.Remita
         /// <returns>A task representing the asynchronous operation, returning the response object of type <typeparamref name="TRes"/>.</returns>
         /// <exception cref="AuthenticationFailedException">Thrown when authentication fails due to Invalid credentials or otherwise.</exception>
         /// <exception cref="InvalidServerResponseException">Thrown when the server returns incomprehensible data.</exception>
-        public async Task<TRes> SendRequest<TRes>(HttpMethod method, string relativeUrl, string operationName, Func<object, string, string, string, Task> cleanUp = null)
+        public async Task<TRes> SendRequest<TRes>(HttpMethod method, string relativeUrl, string operationName, string hashToken,
+            Func<object, string, string, string, Task> cleanUp = null)
             where TRes : ErrorResponse, new()
         {
             try
             {
-                using (var request = await CreateRequest(method, relativeUrl))
+                using (var request = await CreateRequest(method, relativeUrl, hashToken: hashToken))
                 {
                     using (var response = await _httpClient.SendAsync(request))
                     {
@@ -121,11 +122,11 @@ namespace Integrations.Implementations.Remita
             }
         }
 
-        private async Task<HttpRequestMessage> CreateRequest(HttpMethod method, string relativeUrl, object body = null)
+        private async Task<HttpRequestMessage> CreateRequest(HttpMethod method, string relativeUrl, object body = null, string hashToken = null)
         {
-            var token = await Authenticate();
+            var token = hashToken ?? $"Bearer {await Authenticate()}";
             var request = new HttpRequestMessage(method, relativeUrl);
-            request.Headers.Add("Authorization", $"Bearer {token}");
+            request.Headers.TryAddWithoutValidation("Authorization", token);
 
             if (body != null)
             {

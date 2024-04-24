@@ -133,5 +133,12 @@ namespace Integrations.Implementations.Paystack
                 return PaymentBaseResponse<TransactionDataResponse>.Failed(response.Message);
             }
         }
+
+        public Task<SettleTransactionResponse> SettleBulkTransaction(BulkSettleTransactionRequest settleTransactionRequest, Func<object, string, string, string, Task> cleanUp = null)
+            => throw new NotImplementedException("SettleBulkTransaction API is not available for Paystack");
+
+        public Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionStatus(string rrr, Func<object, string, string, string, Task> cleanUp = null)
+            => throw new NotImplementedException("SettleBulkTransactionStatus API is not available for Paystack");
+
     }
 }

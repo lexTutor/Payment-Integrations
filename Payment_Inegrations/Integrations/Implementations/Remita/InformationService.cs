@@ -44,7 +44,7 @@ namespace Integrations.Implementations.Remita
                 return PaymentBaseResponse<AccountEnquiryResponse>.Failed("Failed", error: $"Invalid {nameof(accountEnquiryRequest.SourceBankCode)}");
 
             var accountEnquiryResponse = await _httpClient.SendRequest<AccountEnquiryRequest, PaymentBaseResponse<AccountEnquiryResponse>>
-                (HttpMethod.Post, EndpointConstants.AccountEnquiry, nameof(RetrieveAccountInformation), accountEnquiryRequest, cleanUp);
+                (HttpMethod.Post, EndpointConstants.AccountEnquiry, nameof(RetrieveAccountInformation), accountEnquiryRequest, cleanUp: cleanUp);
 
             return accountEnquiryResponse;
         }

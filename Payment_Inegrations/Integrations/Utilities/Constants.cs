@@ -18,6 +18,8 @@
         public const string Banks = "rpgsvc/v3/rpg/banks";
         public const string InitiateSingleTransaction = "rpgsvc/v3/rpg/single/payment";
         public const string InitiateBulkTransaction = "rpgsvc/v3/rpg/bulk/payment";
+        public const string InitiateBulkSettlement = "echannelsvc/merchant/api/paymentinit";
+        public const string BulkSettlementStatus = "echannelsvc/{0}/{1}/{2}/status.reg";
         public const string AccountEnquiry = "rpgsvc/v3/rpg/account/lookup";
         public const string BulkPaymentStatusEnquiry = "rpgsvc/v3/rpg/bulk/payment/status/{0}";
         public const string SinglePaymentStatusEnquiry = "rpgsvc/v3/rpg/single/payment/status/{0}";

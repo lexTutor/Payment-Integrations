@@ -67,5 +67,22 @@ namespace Integrations.Interfaces
         /// <param name="cleanUp">An optional cleanup function. Parameters are in the following order: RequestObject, RawResponseObject, MethodName, RelativeUrl.</param>
         /// <returns>A ValueTask representing the asynchronous operation, returning a PaymentBaseResponse encapsulating a string representing the payment URL.</returns>
         ValueTask<PaymentBaseResponse<string>> GeneratePaymentUrl(GeneratePaymentUrl generatePaymentUrl, Func<object, string, string, string, Task> cleanUp = null);
+
+        /// <summary>
+        /// Initiates a bulk settlement transaction asynchronously based on the provided BulkSettleTransactionRequest.
+        /// </summary>
+        /// <param name="settleTransactionRequest">The BulkTransactionInitiationRequest object.</param>
+        /// <param name="cleanUp">An optional cleanup function. Parameters are in the following order: RequestObject, RawResponseObject, MethodName, RelativeUrl.</param>
+        /// <returns>A Task representing the asynchronous operation, returning a SettleTransactionResponse object.</returns>
+
+        Task<SettleTransactionResponse> SettleBulkTransaction(BulkSettleTransactionRequest settleTransactionRequest, Func<object, string, string, string, Task> cleanUp = null);
+
+        /// <summary>
+        /// Retrieves the status of a settlement transaction asynchronously based on the provided transaction reference (rrr for Remita).
+        /// </summary>
+        /// <param name="transactionReference">The transaction reference.</param>
+        /// <param name="cleanUp">An optional cleanup function. Parameters are in the following order: RequestObject, RawResponseObject, MethodName, RelativeUrl.</param>
+        /// <returns>A Task representing the asynchronous operation, returning a SettleBulkTransactionStatusResponse object.</returns>
+        Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionStatus(string transactionReference, Func<object, string, string, string, Task> cleanUp = null);
     }
 }
