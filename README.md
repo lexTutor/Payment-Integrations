@@ -36,15 +36,17 @@ The following platforms have been integrated thus far
 
 The following apis have been currently integrated
 
-| Provider                      | Remita | Paystack |
-|-------------------------------|--------|----------|
-| Online Payment                | No     | Yes      |
-| Fund Transfer                 | Yes    | Yes      |
-| Bulk Fund Transfer            | Yes    | Yes      |
-| Account Enquiry               | Yes    | Yes      |
-| Transaction Enquiry           | Yes    | Yes      |
-| Bulk Transaction Enquiry      | Yes    | Yes      |
-| Banks                         | Yes    | Yes      |
+| Provider                       | Remita | Paystack |
+|--------------------------------|--------|----------|
+| Online Payment                 | No     | Yes      |
+| Fund Transfer                  | Yes    | Yes      |
+| Bulk Fund Transfer             | Yes    | Yes      |
+| Account Enquiry                | Yes    | Yes      |
+| Transaction Enquiry            | Yes    | Yes      |
+| Bulk Transaction Enquiry       | Yes    | Yes      |
+| Settlement Transaction         | Yes    | No       |
+| Settlement Transaction Enquiry | Yes    | No       |
+| Banks                          | Yes    | Yes      |
 
 
 
