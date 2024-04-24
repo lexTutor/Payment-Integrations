@@ -137,7 +137,7 @@ namespace Integrations.Implementations.Paystack
         public Task<SettleTransactionResponse> SettleBulkTransaction(BulkSettleTransactionRequest settleTransactionRequest, Func<object, string, string, string, Task> cleanUp = null)
             => throw new NotImplementedException("SettleBulkTransaction API is not available for Paystack");
 
-        public Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionStatus(string rrr, Func<object, string, string, string, Task> cleanUp = null)
+        public Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionEnquiry(string rrr, Func<object, string, string, string, Task> cleanUp = null)
             => throw new NotImplementedException("SettleBulkTransactionStatus API is not available for Paystack");
 
     }

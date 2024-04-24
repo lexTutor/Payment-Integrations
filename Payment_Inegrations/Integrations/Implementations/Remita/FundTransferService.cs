@@ -50,12 +50,12 @@ namespace Integrations.Implementations.Remita
                 settleTransactionRequest, hashToken: hashToken, cleanUp: cleanUp);
         }
 
-        public async Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionStatus(string rrr, Func<object, string, string, string, Task> cleanUp = null)
+        public async Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionEnquiry(string rrr, Func<object, string, string, string, Task> cleanUp = null)
         {
             var hashToken = AppHelpers.ComputeSha512Hash(rrr + _configuration.ApiKey + _configuration.MerchantId);
 
             return await _httpClient.SendRequest<SettleBulkTransactionStatusResponse>
-               (HttpMethod.Get, string.Format(EndpointConstants.BulkSettlementStatus, _configuration.MerchantId, rrr, hashToken), nameof(SettleBulkTransactionStatus), hashToken: hashToken, cleanUp: cleanUp);
+               (HttpMethod.Get, string.Format(EndpointConstants.BulkSettlementStatus, _configuration.MerchantId, rrr, hashToken), nameof(SettleBulkTransactionEnquiry), hashToken: hashToken, cleanUp: cleanUp);
         }
     }
 }

@@ -83,6 +83,6 @@ namespace Integrations.Interfaces
         /// <param name="transactionReference">The transaction reference.</param>
         /// <param name="cleanUp">An optional cleanup function. Parameters are in the following order: RequestObject, RawResponseObject, MethodName, RelativeUrl.</param>
         /// <returns>A Task representing the asynchronous operation, returning a SettleBulkTransactionStatusResponse object.</returns>
-        Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionStatus(string transactionReference, Func<object, string, string, string, Task> cleanUp = null);
+        Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionEnquiry(string transactionReference, Func<object, string, string, string, Task> cleanUp = null);
     }
 }
