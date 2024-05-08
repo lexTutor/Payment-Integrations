@@ -39,7 +39,7 @@ namespace Integrations.Model.Api.Request
         public string DeductFeeFrom { get; set; }
 
         [JsonPropertyName("beneficiaryAmount")]
-        public string BeneficiaryAmount { get; set; }
+        public decimal BeneficiaryAmount { get; set; }
 
         [JsonPropertyName("beneficiaryName")]
         public string BeneficiaryName { get; set; }

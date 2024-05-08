@@ -3,19 +3,19 @@
     "BankCode": "000",
     "BankName": "CENTRAL BANK OF NIGERIA",
     "BankAccronym": "CBN",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/cbn.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/cbn.png"
   },
   {
     "BankCode": "011",
     "BankName": "FIRST BANK OF NIGERIA PLC",
     "BankAccronym": "FBN",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/fbn.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/fbn.png"
   },
   {
     "BankCode": "023",
     "BankName": "NIGERIA INTERNATIONAL BANK (CITIBANK)",
     "BankAccronym": "CITIBANK",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/citi.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/citi.png"
   },
   {
     "BankCode": "030",
@@ -26,31 +26,31 @@
     "BankCode": "032",
     "BankName": "UNION BANK OF NIGERIA PLC",
     "BankAccronym": "Union Bank",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/union.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/union.png"
   },
   {
     "BankCode": "033",
     "BankName": "UBA PLC",
     "BankAccronym": "UBA",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/uba.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/uba.png"
   },
   {
     "BankCode": "035",
     "BankName": "WEMA BANK PLC",
     "BankAccronym": "WEMA",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/wema.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/wema.png"
   },
   {
     "BankCode": "039",
     "BankName": "STANBIC IBTC BANK PLC",
     "BankAccronym": "STANBIC",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/stanbic.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/stanbic.png"
   },
   {
     "BankCode": "044",
     "BankName": "ACCESS BANK PLC",
     "BankAccronym": "ACCESS",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/access.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/access.png"
   },
   {
     "BankCode": "050",
@@ -61,25 +61,25 @@
     "BankCode": "057",
     "BankName": "ZENITH BANK PLC",
     "BankAccronym": "ZENITH",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/zenith.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/zenith.png"
   },
   {
     "BankCode": "058",
     "BankName": "GUARANTY TRUST BANK",
     "BankAccronym": "GTB",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/gtb.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/gtb.png"
   },
   {
     "BankCode": "068",
     "BankName": "STANDARD CHARTERED BANK NIGERIA LTD",
     "BankAccronym": "STANDARD CHARTERED",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/standardchattered.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/standardchattered.png"
   },
   {
     "BankCode": "070",
     "BankName": "FIDELITY BANK PLC",
     "BankAccronym": "FIDELITY",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/fidelity.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/fidelity.png"
   },
   {
     "BankCode": "076",
@@ -95,7 +95,7 @@
     "BankCode": "214",
     "BankName": "FIRST CITY MONUMENT BANK PLC",
     "BankAccronym": "FCMB",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/fcmb.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/fcmb.png"
   },
   {
     "BankCode": "215",
@@ -106,7 +106,7 @@
     "BankCode": "232",
     "BankName": "STERLING BANK PLC",
     "BankAccronym": "STERLING",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/sterling.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/sterling.png"
   },
   {
     "BankCode": "301",
@@ -137,13 +137,13 @@
     "BankCode": "515150400",
     "BankName": "OPAY DIGITAL SERVICE LIMITED",
     "BankAccronym": "OPAY",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/opay.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/opay.png"
   },
   {
     "BankCode": "515150410",
     "BankName": "PALMPAY NIGERIA",
     "BankAccronym": "PALMPAY",
-    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/palmpay.png"
+    "Logo": "https://easeitestac8f.blob.core.windows.net/uploadblob-test/palmpay.png"
   },
   {
     "BankCode": "515150420",
