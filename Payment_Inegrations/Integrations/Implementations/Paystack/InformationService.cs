@@ -14,7 +14,7 @@ namespace Integrations.Implementations.Paystack
 {
     public partial class PaystackApiService
     {
-        public async Task<PaymentBaseResponse<IList<Bank>>> GetBanks()
+        public async Task<PaymentBaseResponse<IList<Bank>>> GetBanks(string fileName = null)
         {
             var data = await _distributedCache.GetStringAsync(CacheConstants.PaystackBanks);
 

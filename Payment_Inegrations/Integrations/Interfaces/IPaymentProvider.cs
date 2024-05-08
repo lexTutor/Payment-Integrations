@@ -15,7 +15,7 @@ namespace Integrations.Interfaces
         /// Retrieves a list of banks asynchronously.
         /// </summary>
         /// <returns>A task representing the asynchronous operation, returning a PaymentBaseResponse encapsulating an IList of Bank objects.</returns>
-        Task<PaymentBaseResponse<IList<Bank>>> GetBanks();
+        Task<PaymentBaseResponse<IList<Bank>>> GetBanks(string fileName = null);
 
         /// <summary>
         /// Retrieves account information asynchronously based on the provided AccountEnquiryRequest.

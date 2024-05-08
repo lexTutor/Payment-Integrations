@@ -14,15 +14,18 @@ namespace Integrations.Implementations.Remita
 {
     public partial class RemitaApiService
     {
-        public async Task<PaymentBaseResponse<IList<Bank>>> GetBanks()
+        public async Task<PaymentBaseResponse<IList<Bank>>> GetBanks(string fileName = null)
         {
+            if (string.IsNullOrWhiteSpace(fileName))
+                return PaymentBaseResponse<IList<Bank>>.Failed("Invalid Filename");
+
             var data = await _distributedCache.GetStringAsync(CacheConstants.RemitaBanks);
 
             if (!string.IsNullOrWhiteSpace(data))
                 return PaymentBaseResponse<IList<Bank>>.Successful("Successful", JsonConvert.DeserializeObject<List<Bank>>(data));
 
             // Read the file contents
-            string fileContents = File.ReadAllText("../Integrations/Files/remitabanks.json");
+            string fileContents = File.ReadAllText(fileName);
 
             // Deserialize the file contents into a list of Bank objects
             var banksResponse = JsonConvert.DeserializeObject<List<Bank>>(fileContents);
