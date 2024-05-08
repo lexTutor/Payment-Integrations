@@ -26,28 +26,28 @@ namespace Integrations.Model.Api.Request
         [JsonPropertyName("description")]
         public string Description { get; set; }
 
-        [JsonPropertyName("LINEITEMS")]
+        [JsonPropertyName("lineitems")]
         public List<BulkSettleTransactionDataRequest> LineItems { get; set; }
     }
 
     public class BulkSettleTransactionDataRequest
     {
-        [JsonPropertyName("LINEITEMSID")]
+        [JsonPropertyName("lineItemsId")]
         public string LineItemsId { get; set; }
 
-        [JsonPropertyName("DEDUCTFEEFROM")]
+        [JsonPropertyName("deductFeeFrom")]
         public string DeductFeeFrom { get; set; }
 
-        [JsonPropertyName("BENEFICIARYAMOUNT")]
+        [JsonPropertyName("beneficiaryAmount")]
         public string BeneficiaryAmount { get; set; }
 
-        [JsonPropertyName("BENEFICIARYNAME")]
+        [JsonPropertyName("beneficiaryName")]
         public string BeneficiaryName { get; set; }
 
-        [JsonPropertyName("BANKCODE")]
-        public string bankCode { get; set; }
+        [JsonPropertyName("bankCode")]
+        public string BankCode { get; set; }
 
-        [JsonPropertyName("BENEFICIARYACCOUNT")]
-        public string beneficiaryAccount { get; set; }
+        [JsonPropertyName("beneficiaryAccount")]
+        public string BeneficiaryAccount { get; set; }
     }
 }

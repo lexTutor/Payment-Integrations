@@ -2,10 +2,11 @@
 using Integrations.Model.Api.Response;
 using Integrations.Model.Common;
 using Integrations.Utilities;
-using Integrations.Utilities.Serializers;
 using Microsoft.Extensions.Caching.Distributed;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -18,18 +19,22 @@ namespace Integrations.Implementations.Remita
             var data = await _distributedCache.GetStringAsync(CacheConstants.RemitaBanks);
 
             if (!string.IsNullOrWhiteSpace(data))
-                return PaymentBaseResponse<IList<Bank>>.Successful("Successful", JsonSerializer.Deserialize<List<Bank>>(data));
+                return PaymentBaseResponse<IList<Bank>>.Successful("Successful", JsonConvert.DeserializeObject<List<Bank>>(data));
 
-            var banksResponse = await _httpClient.SendRequest<PaymentBaseResponse<BankResponse>>(HttpMethod.Get, EndpointConstants.Banks, nameof(GetBanks));
+            // Read the file contents
+            string fileContents = File.ReadAllText("../Integrations/Files/remitabanks.json");
 
-            if (banksResponse.IsSuccessful)
+            // Deserialize the file contents into a list of Bank objects
+            var banksResponse = JsonConvert.DeserializeObject<List<Bank>>(fileContents);
+
+            if (!banksResponse.IsNullOrEmpty())
             {
-                await _distributedCache.SetStringAsync(CacheConstants.RemitaBanks, JsonSerializer.ToJsonString(banksResponse.Data.Banks), new DistributedCacheEntryOptions
+                await _distributedCache.SetStringAsync(CacheConstants.RemitaBanks, fileContents, new DistributedCacheEntryOptions
                 {
                     AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(1)
                 });
 
-                return PaymentBaseResponse<IList<Bank>>.Successful("Successful", banksResponse.Data.Banks);
+                return PaymentBaseResponse<IList<Bank>>.Successful("Successful", banksResponse);
             }
 
             return PaymentBaseResponse<IList<Bank>>.Failed("Failed");

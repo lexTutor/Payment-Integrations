@@ -75,7 +75,7 @@ namespace Integrations.Interfaces
         /// <param name="cleanUp">An optional cleanup function. Parameters are in the following order: RequestObject, RawResponseObject, MethodName, RelativeUrl.</param>
         /// <returns>A Task representing the asynchronous operation, returning a SettleTransactionResponse object.</returns>
 
-        Task<SettleTransactionResponse> SettleBulkTransaction(BulkSettleTransactionRequest settleTransactionRequest, Func<object, string, string, string, Task> cleanUp = null);
+        Task<PaymentBaseResponse<SettleTransactionResponse>> SettleBulkTransaction(BulkSettleTransactionRequest settleTransactionRequest, Func<object, string, string, string, Task> cleanUp = null);
 
         /// <summary>
         /// Retrieves the status of a settlement transaction asynchronously based on the provided transaction reference (rrr for Remita).
@@ -83,6 +83,6 @@ namespace Integrations.Interfaces
         /// <param name="transactionReference">The transaction reference.</param>
         /// <param name="cleanUp">An optional cleanup function. Parameters are in the following order: RequestObject, RawResponseObject, MethodName, RelativeUrl.</param>
         /// <returns>A Task representing the asynchronous operation, returning a SettleBulkTransactionStatusResponse object.</returns>
-        Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionEnquiry(string transactionReference, Func<object, string, string, string, Task> cleanUp = null);
+        Task<PaymentBaseResponse<SettleBulkTransactionStatusResponse>> SettleBulkTransactionEnquiry(string transactionReference, Func<object, string, string, string, Task> cleanUp = null);
     }
 }

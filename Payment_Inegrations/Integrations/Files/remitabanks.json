@@ -1,0 +1,218 @@
+[
+  {
+    "BankCode": "000",
+    "BankName": "CENTRAL BANK OF NIGERIA",
+    "BankAccronym": "CBN",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/cbn.png"
+  },
+  {
+    "BankCode": "011",
+    "BankName": "FIRST BANK OF NIGERIA PLC",
+    "BankAccronym": "FBN",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/fbn.png"
+  },
+  {
+    "BankCode": "023",
+    "BankName": "NIGERIA INTERNATIONAL BANK (CITIBANK)",
+    "BankAccronym": "CITIBANK",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/citi.png"
+  },
+  {
+    "BankCode": "030",
+    "BankName": "BANK PLC",
+    "BankAccronym": "BANK"
+  },
+  {
+    "BankCode": "032",
+    "BankName": "UNION BANK OF NIGERIA PLC",
+    "BankAccronym": "Union Bank",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/union.png"
+  },
+  {
+    "BankCode": "033",
+    "BankName": "UBA PLC",
+    "BankAccronym": "UBA",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/uba.png"
+  },
+  {
+    "BankCode": "035",
+    "BankName": "WEMA BANK PLC",
+    "BankAccronym": "WEMA",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/wema.png"
+  },
+  {
+    "BankCode": "039",
+    "BankName": "STANBIC IBTC BANK PLC",
+    "BankAccronym": "STANBIC",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/stanbic.png"
+  },
+  {
+    "BankCode": "044",
+    "BankName": "ACCESS BANK PLC",
+    "BankAccronym": "ACCESS",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/access.png"
+  },
+  {
+    "BankCode": "050",
+    "BankName": "ECOBANK NIGERIA PLC",
+    "BankAccronym": "ECOBANK"
+  },
+  {
+    "BankCode": "057",
+    "BankName": "ZENITH BANK PLC",
+    "BankAccronym": "ZENITH",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/zenith.png"
+  },
+  {
+    "BankCode": "058",
+    "BankName": "GUARANTY TRUST BANK",
+    "BankAccronym": "GTB",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/gtb.png"
+  },
+  {
+    "BankCode": "068",
+    "BankName": "STANDARD CHARTERED BANK NIGERIA LTD",
+    "BankAccronym": "STANDARD CHARTERED",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/standardchattered.png"
+  },
+  {
+    "BankCode": "070",
+    "BankName": "FIDELITY BANK PLC",
+    "BankAccronym": "FIDELITY",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/fidelity.png"
+  },
+  {
+    "BankCode": "076",
+    "BankName": "SKYE BANK PLC",
+    "BankAccronym": "SKYE"
+  },
+  {
+    "BankCode": "101",
+    "BankName": "PROVIDUS BANK",
+    "BankAccronym": "PROVIDUS"
+  },
+  {
+    "BankCode": "214",
+    "BankName": "FIRST CITY MONUMENT BANK PLC",
+    "BankAccronym": "FCMB",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/fcmb.png"
+  },
+  {
+    "BankCode": "215",
+    "BankName": "UNITY BANK PLC",
+    "BankAccronym": "UNITY"
+  },
+  {
+    "BankCode": "232",
+    "BankName": "STERLING BANK PLC",
+    "BankAccronym": "STERLING",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/sterling.png"
+  },
+  {
+    "BankCode": "301",
+    "BankName": "JAIZ BANK",
+    "BankAccronym": "JAIZ"
+  },
+  {
+    "BankCode": "459",
+    "BankName": "CORONATION MERCHANT BANK LIMITED",
+    "BankAccronym": "CORONATION"
+  },
+  {
+    "BankCode": "480",
+    "BankName": "JUBILEE BANK",
+    "BankAccronym": "JUBILEE"
+  },
+  {
+    "BankCode": "302",
+    "BankName": "TAJBANK LTD",
+    "BankAccronym": "TAJBANK"
+  },
+  {
+    "BankCode": "102",
+    "BankName": "TITAN TRUST BANK LIMITED",
+    "BankAccronym": "TITAN TRUST"
+  },
+  {
+    "BankCode": "515150400",
+    "BankName": "OPAY DIGITAL SERVICE LIMITED",
+    "BankAccronym": "OPAY",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/opay.png"
+  },
+  {
+    "BankCode": "515150410",
+    "BankName": "PALMPAY NIGERIA",
+    "BankAccronym": "PALMPAY",
+    "Logo":"https://easeitestac8f.blob.core.windows.net/uploadblob-test/palmpay.png"
+  },
+  {
+    "BankCode": "515150420",
+    "BankName": "MONIEPOINT MICROFINANCE BANK",
+    "BankAccronym": "MONIEPOINT"
+  },
+  {
+    "BankCode": "515150510",
+    "BankName": "Mkobo Microfinance Bank",
+    "BankAccronym": "Mkobo"
+  },
+  {
+    "BankCode": "515150520",
+    "BankName": "Hope Payment Service Bank",
+    "BankAccronym": "Hope Payment"
+  },
+  {
+    "BankCode": "515150530",
+    "BankName": "TagPay",
+    "BankAccronym": "TagPay"
+  },
+  {
+    "BankCode": "515150540",
+    "BankName": "Kuda",
+    "BankAccronym": "Kuda"
+  },
+  {
+    "BankCode": "515150550",
+    "BankName": "FetsWallet",
+    "BankAccronym": "FetsWallet"
+  },
+  {
+    "BankCode": "515150430",
+    "BankName": "ACCION MICROFINANCE BANK",
+    "BankAccronym": "ACCION"
+  },
+  {
+    "BankCode": "515150440",
+    "BankName": "Finca Microfinance Bank",
+    "BankAccronym": "Finca"
+  },
+  {
+    "BankCode": "515150450",
+    "BankName": "Infinity Microfinance Bank",
+    "BankAccronym": "Infinity"
+  },
+  {
+    "BankCode": "515150460",
+    "BankName": "MINT-FINEX Microfinance Bank",
+    "BankAccronym": "MINT-FINEX"
+  },
+  {
+    "BankCode": "515150470",
+    "BankName": "MUTUALTRUST Microfinance Bank",
+    "BankAccronym": "MUTUALTRUST"
+  },
+  {
+    "BankCode": "515150480",
+    "BankName": "Peace Microfinance Bank",
+    "BankAccronym": "Peace"
+  },
+  {
+    "BankCode": "515150490",
+    "BankName": "RUBIES Microfinance Bank",
+    "BankAccronym": "RUBIES"
+  },
+  {
+    "BankCode": "515150500",
+    "BankName": "VFD Microfinance Bank",
+    "BankAccronym": "VFD"
+  }
+]

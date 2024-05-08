@@ -38,24 +38,35 @@ namespace Integrations.Implementations.Remita
                 (HttpMethod.Get, string.Format(EndpointConstants.SinglePaymentStatusEnquiry, transactionRef), nameof(SingleTransactionStatusEnquiry), cleanUp: cleanUp);
         }
 
-        public async Task<SettleTransactionResponse> SettleBulkTransaction(BulkSettleTransactionRequest settleTransactionRequest, Func<object, string, string, string, Task> cleanUp = null)
+        public async Task<PaymentBaseResponse<SettleTransactionResponse>> SettleBulkTransaction(BulkSettleTransactionRequest settleTransactionRequest, Func<object, string, string, string, Task> cleanUp = null)
         {
             var hash = AppHelpers.ComputeSha512Hash(_configuration.MerchantId + settleTransactionRequest.ServiceTypeId + settleTransactionRequest.OrderId
                 + settleTransactionRequest.Amount + _configuration.ApiKey);
 
             var hashToken = $"remitaConsumerKey={_configuration.MerchantId},remitaConsumerToken={hash}";
 
-            return await _httpClient.SendRequest<BulkSettleTransactionRequest, SettleTransactionResponse>
+            var apiResponse = await _httpClient.SendRequest<BulkSettleTransactionRequest, SettleTransactionResponse>
                 (HttpMethod.Post, EndpointConstants.InitiateBulkSettlement, nameof(SettleBulkTransaction),
                 settleTransactionRequest, hashToken: hashToken, cleanUp: cleanUp);
+
+            if (apiResponse.IsSuccessful)
+                return PaymentBaseResponse<SettleTransactionResponse>.Successful("Successful", apiResponse);
+
+            return PaymentBaseResponse<SettleTransactionResponse>.Failed("Failed", apiResponse);
         }
 
-        public async Task<SettleBulkTransactionStatusResponse> SettleBulkTransactionEnquiry(string rrr, Func<object, string, string, string, Task> cleanUp = null)
+        public async Task<PaymentBaseResponse<SettleBulkTransactionStatusResponse>> SettleBulkTransactionEnquiry(string rrr, Func<object, string, string, string, Task> cleanUp = null)
         {
             var hashToken = AppHelpers.ComputeSha512Hash(rrr + _configuration.ApiKey + _configuration.MerchantId);
 
-            return await _httpClient.SendRequest<SettleBulkTransactionStatusResponse>
-               (HttpMethod.Get, string.Format(EndpointConstants.BulkSettlementStatus, _configuration.MerchantId, rrr, hashToken), nameof(SettleBulkTransactionEnquiry), hashToken: hashToken, cleanUp: cleanUp);
+            var apiResponse = await _httpClient.SendRequest<SettleBulkTransactionStatusResponse>
+               (HttpMethod.Get, string.Format(EndpointConstants.BulkSettlementStatus, _configuration.MerchantId, rrr, hashToken),
+               nameof(SettleBulkTransactionEnquiry), hashToken: hashToken, cleanUp: cleanUp);
+
+            if (apiResponse.IsSuccessful)
+                return PaymentBaseResponse<SettleBulkTransactionStatusResponse>.Successful("Successful", apiResponse);
+
+            return PaymentBaseResponse<SettleBulkTransactionStatusResponse>.Failed("Failed", apiResponse);
         }
     }
 }
