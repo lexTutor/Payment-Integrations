@@ -25,13 +25,13 @@ namespace Integrations.Implementations.Paystack
                 await cleanUp(paymentData, response.RawJson, HttpMethod.Post.ToString(), nameof(_payStackApi.Transactions));
             }
 
-            if (response.Status && response.Data == null)
+            if (response.Status && response.Data != null)
             {
                 return PaymentBaseResponse<string>.Successful(response.Message, response.Data.AuthorizationUrl);
             }
             else
             {
-                return PaymentBaseResponse<string>.Failed(response.Message);
+                return PaymentBaseResponse<string>.Failed(response.Message, "Unable to initiate transaction.");
             }
         }
     }

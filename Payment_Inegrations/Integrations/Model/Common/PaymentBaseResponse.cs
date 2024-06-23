@@ -21,7 +21,7 @@ namespace Integrations.Model.Common
             Error = error ?? Error;
         }
 
-        public static PaymentBaseResponse<T> Failed(string message, T data = default, string error = null) => new PaymentBaseResponse<T>(message, data: data, error: error);
+        public static PaymentBaseResponse<T> Failed(string message, string error, T data = default) => new PaymentBaseResponse<T>(message, data: data, error: error);
 
         public static PaymentBaseResponse<T> Successful(string message, T data = default) => new PaymentBaseResponse<T>(message, data: data);
 

@@ -52,7 +52,7 @@ namespace Integrations.Implementations.Remita
             if (apiResponse.IsSuccessful)
                 return PaymentBaseResponse<SettleTransactionResponse>.Successful("Successful", apiResponse);
 
-            return PaymentBaseResponse<SettleTransactionResponse>.Failed("Failed", apiResponse);
+            return PaymentBaseResponse<SettleTransactionResponse>.Failed("Failed", "Unable to settle bulk transaction", apiResponse);
         }
 
         public async Task<PaymentBaseResponse<SettleBulkTransactionStatusResponse>> SettleBulkTransactionEnquiry(string rrr, Func<object, string, string, string, Task> cleanUp = null)
@@ -66,7 +66,7 @@ namespace Integrations.Implementations.Remita
             if (apiResponse.IsSuccessful)
                 return PaymentBaseResponse<SettleBulkTransactionStatusResponse>.Successful("Successful", apiResponse);
 
-            return PaymentBaseResponse<SettleBulkTransactionStatusResponse>.Failed("Failed", apiResponse);
+            return PaymentBaseResponse<SettleBulkTransactionStatusResponse>.Failed("Failed", "Unable to settle bulk transaction", apiResponse);
         }
     }
 }

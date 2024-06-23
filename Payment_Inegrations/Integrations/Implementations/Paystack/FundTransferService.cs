@@ -65,7 +65,7 @@ namespace Integrations.Implementations.Paystack
             }
             else
             {
-                return PaymentBaseResponse<SingleTransactionInitiationResponse>.Failed(response.Message);
+                return PaymentBaseResponse<SingleTransactionInitiationResponse>.Failed(response.Message, "Unable to initiate transaction.");
             }
         }
 
@@ -99,7 +99,7 @@ namespace Integrations.Implementations.Paystack
             }
             else
             {
-                return PaymentBaseResponse<BulkTransactionInitiationResponse>.Failed(response.Message);
+                return PaymentBaseResponse<BulkTransactionInitiationResponse>.Failed(response.Message, "Unable to initiate bulk transaction.");
             }
         }
 
@@ -130,7 +130,7 @@ namespace Integrations.Implementations.Paystack
             }
             else
             {
-                return PaymentBaseResponse<TransactionDataResponse>.Failed(response.Message);
+                return PaymentBaseResponse<TransactionDataResponse>.Failed(response.Message, "Unable to retrieve transaction status.");
             }
         }
 

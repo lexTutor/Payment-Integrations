@@ -17,7 +17,7 @@ namespace Integrations.Implementations.Remita
         public async Task<PaymentBaseResponse<IList<Bank>>> GetBanks(string fileName = null)
         {
             if (string.IsNullOrWhiteSpace(fileName))
-                return PaymentBaseResponse<IList<Bank>>.Failed("Invalid Filename");
+                return PaymentBaseResponse<IList<Bank>>.Failed("Invalid Filename", "Unable to retrieve bank collection");
 
             var data = await _distributedCache.GetStringAsync(CacheConstants.RemitaBanks);
 
@@ -40,7 +40,7 @@ namespace Integrations.Implementations.Remita
                 return PaymentBaseResponse<IList<Bank>>.Successful("Successful", banksResponse);
             }
 
-            return PaymentBaseResponse<IList<Bank>>.Failed("Failed");
+            return PaymentBaseResponse<IList<Bank>>.Failed("Failed", "Unable to retrieve bank collection");
         }
 
         public async ValueTask<PaymentBaseResponse<AccountEnquiryResponse>> RetrieveAccountInformation(AccountEnquiryRequest accountEnquiryRequest, Func<object, string, string, string, Task> cleanUp = null)

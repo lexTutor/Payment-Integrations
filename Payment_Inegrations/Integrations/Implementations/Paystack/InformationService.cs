@@ -40,7 +40,7 @@ namespace Integrations.Implementations.Paystack
                 return PaymentBaseResponse<IList<Bank>>.Successful("Successful", banks);
             }
 
-            return PaymentBaseResponse<IList<Bank>>.Failed("Failed");
+            return PaymentBaseResponse<IList<Bank>>.Failed("Failed", "Unable to retrieve bank collection");
         }
 
         public async ValueTask<PaymentBaseResponse<AccountEnquiryResponse>> RetrieveAccountInformation
